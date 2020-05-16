@@ -1,2 +1,2 @@
 # -Event-Planning-Multiuser
-Implemented multi-user event planning service with deploy to Heroku
+Implemented multi-user event planning service with deploy to Heroku on Flask
