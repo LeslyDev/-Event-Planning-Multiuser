@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Изменение данных
+{% endblock %}
+
+
+{% block content %}
+    <div class="formwrapper">
+        <h2>Изменение данных {{user.name}}</h2>
+        <form action="/change_user_data/{{user.name}}" method="POST">
+            <div class="form-group d-flex flex-column">
+                {{ form.csrf_token }}
+                <input type="hidden" name="_method" value="PATCH" />
+                <div class="form-field">Фамилия {{form.lastname(class_='form-control')}}</div>
+                <div class="form-field">Емэйл {{form.email(class_='form-control')}}</div>
+                <input type="submit" class="btn btn-success mt-4" value="Изменить">
+            </div>
+        </form>
+    </div>
+{% endblock %}

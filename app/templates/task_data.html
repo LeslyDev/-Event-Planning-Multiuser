@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ task.title }}
+{% endblock %}
+
+
+{% block content %}
+    <h3>{{ task.title }}</h3>
+    <p>Содержание: {{ task.body }}</p>
+    <p> Создана: {{ task.start }}</p>
+    <p> Окончание: {{ task.end }}</p>
+    {% if current_user.name == task.author_name %}
+        <p><a href="/admin">Автор {{ task.author_name }}</a></p>
+    {% else %}
+        <p><a href="/author_data/{{ task.author_name }}">Автор {{ task.author_name }}</a></p>
+    {% endif %}
+    {% if current_user.name == task.author_name %}
+        <p><a href="/change_task_data/{{ task._id }}">Изменить задачу</a></p>
+        <p><a href="/delete_task/{{ task._id }}">Удалить задачу</a></p>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Создание пользователя
+{% endblock %}
+
+
+{% block content %}
+    <div class="formwrapper">
+        <h2>Создание пользователя</h2>
+        <form action="/create_user" method="post">
+            <div class="form-group">
+                {{ form.csrf_token }}
+                <div class="form-field">{{form.name.label}} {{form.name(class_='form-control')}}</div>
+                <div class="form-field">{{form.lastname.label}} {{form.lastname(class_='form-control')}}</div>
+                <div class="form-field">{{form.email.label}} {{form.email(class_='form-control')}}</div>
+                <div class="form-field">{{form.password.label}} {{form.password(class_='form-control')}}</div>
+                <input type="submit" value="GO" class="mt-4">
+            </div>
+        </form>
+    </div>
+{% endblock %}

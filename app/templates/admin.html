@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Админка
+{% endblock %}
+
+
+{% block content %}
+    <h3>Данные пользователя {{ current_user.name }}</h3>
+    <ul>
+        <li>Имя пользователя: {{ current_user.name }}</li>
+        <li>Фамилия: {{ current_user.lastname }}</li>
+        <li>Email: {{ current_user.email }}</li>
+    </ul>
+    <p><a href="/change_user_data/{{current_user.name}}">Изменить данные</a></p>
+    <p><a href="/create_task">Создать задачу</a></p>
+{% endblock %}

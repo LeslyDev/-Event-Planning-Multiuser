@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Задачи
+{% endblock %}
+
+
+{% block content %}
+    <h2>Список задач</h2>
+    <a href="/create_task" class="text-dark">Создать задачу</a>
+    <ul class="list-group">
+        {% for task in tasks %}
+            <a class="task text-decoration-none mb-4 mt-4" href="/task_data/{{ task._id }}">
+                <li class="list-group-item">
+                    <span>Название: {{ task.title }} <i>Начало: {{ task.start }}</i> <i>Окончание: {{ task.end }}</i></span>
+                </li>
+            </a>
+        {% endfor %}
+    </ul>
+{% endblock %}

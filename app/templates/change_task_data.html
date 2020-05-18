@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Изменение данных
+{% endblock %}
+
+
+{% block content %}
+    <div class="formwrapper">
+        <h2>Изменение данных {{task.title}}</h2>
+        <form action="/change_task_data/{{task._id}}" method="POST">
+            <div class="form-group d-flex flex-column">
+                {{ form.csrf_token }}
+                <input type="hidden" name="_method" value="PATCH" />
+                <div class="form-field">Содержание {{form.description(class_='form-control')}}</div>
+                <div class="form-field">Дата старта {{form.start_time(class_='form-control', placeholder="ЧЧ:ММ ДД.ММ.ГГГГ")}}</div>
+                <div class="form-field">Дата окончания {{form.end_time(class_='form-control', placeholder="ЧЧ:ММ ДД.ММ.ГГГГ")}}</div>
+                <input type="submit" class="btn btn-success" value="Изменить">
+            </div>
+        </form>
+    </div>
+{% endblock %}

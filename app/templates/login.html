@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Логин
+{% endblock %}
+
+
+{% block content %}
+    <div class="formwrapper">
+        <h2>Логин</h2>
+        {% for category, message in  get_flashed_messages(with_categories=true) %}
+            <spam class="{{ category }}">{{ message }}</spam>
+        {% endfor %}
+
+        <form action="/login" method="post">
+            <div class="form-group d-flex flex-column">
+                {{ form.csrf_token }}
+                <div class="form-field">Имя пользователя {{form.name(class_='form-control')}}</div>
+                <div class="form-field">Пароль {{form.password(class_='form-control')}}</div>
+                <input class="mt-4" type="submit" value="Войти">
+            </div>
+        </form>
+        <a href="/create_user" class="text-dark">Зарегистрироваться</a>
+    </div>
+{% endblock %}

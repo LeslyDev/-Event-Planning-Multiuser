@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Создание задачи
+{% endblock %}
+
+
+{% block content %}
+    <div class="formwrapper">
+        <h2>Создание задачи</h2>
+        <form action="/create_task" method="post">
+            <div class="form-group d-flex flex-column">
+                {{ form.csrf_token }}
+                <div class="form-field">Название {{form.title(class_='form-control')}}</div>
+                <div class="form-field">Содержание {{form.description(class_='form-control')}}</div>
+                <div class="form-field">
+                    Дата начала {{form.start_time(class_='form-control', placeholder="ЧЧ:ММ ДД.ММ.ГГГГ")}}<br>
+                </div>
+                <div class="form-field">
+                    Дата окончания {{form.end_time(class_='form-control', placeholder="ЧЧ:ММ ДД.ММ.ГГГГ")}}<br>
+                </div>
+                <div class="form-field" hidden>
+                    <input type="text" name="author_name" value="{{current_user.name}}">
+                </div><br>
+                <input type="submit" class="btn btn-success" value="Создать">
+            </div>
+        </form>
+    </div>
+{% endblock %}

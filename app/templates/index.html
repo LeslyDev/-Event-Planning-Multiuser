@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Планирование задач
+{% endblock %}
+
+{% block header %}
+    
+{% endblock %}
+
+{% block content %}
+    <div>
+        <h2>Сервис по планированию</h2>
+        {% if current_user.is_authenticated %}
+            <p class="mt-4 mb-4"><a href="/tasks" class="text-dark">Список задач</a></p>
+            <p><a href="/tasks/{{ current_user.name }}" class="text-dark">Список ваших задач</a></p>
+        {% endif %}
+    </div>
+{% endblock %}
