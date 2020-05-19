@@ -2,6 +2,9 @@ import os
 
 
 class Config:
-    SQLALCHEMY_DATABASE_URI = 'postgresql://postgres:docker@localhost:32769/event_planning'
+    SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+    FLASK_APP = "app.py"
+    FLASK_DEBUG = 1
+    FLASK_ENV = 'development'
     SECRET_KEY = os.urandom(24)
